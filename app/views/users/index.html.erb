@@ -1,0 +1,11 @@
+List of all registered users
+<p>
+
+<%#= paginate @users %>
+
+<% @users.each do |user| %>
+  <strong>user id :</strong> <%= user.id %>,
+  <strong> user email: </strong><%= user.email %>
+  <%= link_to "<-> chat with", user_messages_url(user) unless user == current_user%> <br />
+<% end %>
+
