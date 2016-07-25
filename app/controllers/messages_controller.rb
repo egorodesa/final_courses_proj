@@ -18,10 +18,9 @@ class MessagesController < ApplicationController
     messages_current_receiver = Message.where(sender_id: @receiver_user.id,
                               receiver_id: current_user.id)
     # binding.pry
-
+    @messages = (messages_current_user + messages_current_receiver).sort
     # binding.pry
-    @messages = Kaminari.paginate_array((messages_current_user +
-                          messages_current_receiver).sort).page(params[:page])
+    @messages = Kaminari.paginate_array(@messages).page(params[:page]).per(5)
 # binding.pry
     # @messages = current_user.sent_messages.where(receiver_id: @receiver.id) +
     #             @receiver_user.sent_messages.where(receiver_id: current_user.id)

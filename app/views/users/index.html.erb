@@ -1,7 +1,9 @@
 List of all registered users
 <p>
 
-<%#= paginate @users %>
+<%#= form_for @users, url: user_messages_path do |f| %>
+  <%#= f.text_field :body %>
+  <%# end %>
 
 <% @users.each do |user| %>
   <strong>user id :</strong> <%= user.id %>,

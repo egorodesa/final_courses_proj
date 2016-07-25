@@ -5,16 +5,18 @@
 </p>
 
 <p>
-  <strong>first name:</strong>
-  <%= @user.first_name %>
+  <strong>phone_number:</strong>
+  <%= @user.phone_number %>
 </p>
 <p><p><p>
-<strong>last name:</strong>
-  <%= @user.last_name %>
+<strong>address:</strong>
+  <%= @user.address %>
 </p>
 <p><p>
-  <strong>address:</strong>
-  <%= @user.address %>
+  <strong>age:</strong>
+  <% if @user.date_of_birth? %>
+    <%= @user.age %>
+  <% end %>
 </p>
 <p>
   <strong>avatar:</strong>
