@@ -13,4 +13,6 @@ class ApplicationController < ActionController::Base
                                                               :phone_number, :email,
                                                                :avatar, :date_of_birth])
   end
+
+  before_filter :set_paper_trail_whodunnit
 end

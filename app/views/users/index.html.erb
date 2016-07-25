@@ -1,9 +1,16 @@
-List of all registered users
-<p>
+<!-- List of all registered users
+<p> -->
 
 <%#= form_for @users, url: user_messages_path do |f| %>
   <%#= f.text_field :body %>
   <%# end %>
+Find users by email
+<%= form_tag root_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 <% @users.each do |user| %>
   <strong>user id :</strong> <%= user.id %>,
