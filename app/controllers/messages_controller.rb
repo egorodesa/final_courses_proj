@@ -18,8 +18,6 @@ class MessagesController < ApplicationController
     #             @receiver_user.sent_messages.where(receiver_id: current_user.id)
     # # end
 
-
-    # @message = Message.new
     @message = Message.new
     # @messages =  Message.private_messages_array(@receiver.id)
 
@@ -37,6 +35,19 @@ class MessagesController < ApplicationController
     redirect_to user_messages_path #(receiver_id: @message.receiver_id), method: :get
 
   end
+
+  def destroy
+    # binding.pry
+    message = Message.find_by(sender_id: params[:user_id], id: params[:id])
+    message.destroy
+    redirect_to :back
+  end
+
+  # def update
+  #   message = Message.find()
+  #   message.destroy
+  #   redirect_to :back
+  # end
 
   private
 

@@ -3,7 +3,12 @@
 <% if @messages %>
   <% @messages.sort.each do |message| %>
     <strong><%= message.sender.email %> wrote: </strong> <%= message.body %>
-    <sub>at <%= message.created_at %></sub><br/>
+    <sub>at <%= message.created_at %></sub>
+    <%# binding.pry %>
+    <% if message.sender == current_user && message.deleted_at == nil %>
+    <%= link_to 'delete msg', user_message_path(current_user.id,message.id), method: :delete %>
+    <% end %>
+    <br/>
   <% end %>
 <% end %>
 
